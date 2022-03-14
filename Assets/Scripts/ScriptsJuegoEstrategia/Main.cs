@@ -294,37 +294,37 @@ public class Main : MonoBehaviour
         
 
         
-        //Cuando todos estan vivos todos los elementos de las 2 listas 
-         while (EquipoAzul[0].getViva() && EquipoAzul[1].getViva() && EquipoAzul[2].getViva() && EquipoAzul[3].getViva() && EquipoAzul[4].getViva() || EquipoRojo[0].getViva() && EquipoRojo[1].getViva() && EquipoRojo[2].getViva() && EquipoRojo[3].getViva() && EquipoRojo[4].getViva()){
+        //Cuando se llama al metodo NO TodosMuertos sobre los 2 equipos
+             while( ! TodosMuertos(EquipoAzul) && ! TodosMuertos(EquipoRojo)){
              //Numero aleatorio que sera 0 o 1
              
              //Numero aleatorio que sera 0 o 1
         eleccion = Random.Range(0,2);
             
             if(eleccion==1){
-                    EquipoRojo[Random.Range(0,4)].SerAtacado(((Militar)EquipoRojo[Random.Range(3, 5)]).Atacar());
-                    if( ! EquipoAzul[0].getViva() && ! EquipoAzul[1].getViva() && ! EquipoAzul[2].getViva() && ! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
-                        Debug.Log("Ganó el Rojo");
+                    EquipoAzul[Random.Range(0,5)].SerAtacado(((Militar)EquipoRojo[Random.Range(3, 5)]).Atacar());
+                    if( ! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
+                        Debug.Log("Ganó el equipo Rojo");
                         break;
                     }
 
-                EquipoRojo[Random.Range(0,4)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
-                if( ! EquipoRojo[0].getViva() && ! EquipoRojo[1].getViva() && ! EquipoRojo[2].getViva() && ! EquipoRojo[3].getViva() && ! EquipoRojo[4].getViva()){
-                        Debug.Log("Ganó el Azul");
+                EquipoRojo[Random.Range(0,5)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
+                if( ! EquipoRojo[3].getViva() && ! EquipoRojo[4].getViva()){
+                        Debug.Log("Ganó el equipo Azul");
                         break; 
                     }
             }
 
             else{
                 
-            EquipoRojo[Random.Range(0,4)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
-              if( ! EquipoRojo[0].getViva() && ! EquipoRojo[1].getViva() && ! EquipoRojo[2].getViva() && ! EquipoRojo[3].getViva() && ! EquipoRojo[4].getViva()){
-                    Debug.Log("Ganó el Azul");
+            EquipoRojo[Random.Range(0,5)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
+              if( ! EquipoRojo[3].getViva() && ! EquipoRojo[4].getViva()){
+                    Debug.Log("Ganó el equipo Azul");
                     break; 
                 }
-            EquipoAzul[Random.Range(0,4)].SerAtacado(((Militar)EquipoRojo[Random.Range(3, 5)]).Atacar());
-                if(! EquipoAzul[0].getViva() && ! EquipoAzul[1].getViva() && ! EquipoAzul[2].getViva() && ! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
-                    Debug.Log("Ganó el Rojo");
+            EquipoAzul[Random.Range(0,5)].SerAtacado(((Militar)EquipoRojo[Random.Range(3, 5)]).Atacar());
+                if(! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
+                    Debug.Log("Ganó el equipo Rojo");
                     break;
                 }
             }
@@ -335,7 +335,7 @@ public class Main : MonoBehaviour
         
         for (int i=0; i < equipos.Count; i++){
             if(equipos[i].getViva()){   
-                Debug.Log("HAN PALMADO");
+                Debug.Log("Han palmado");
                 return false;
                 
             }
