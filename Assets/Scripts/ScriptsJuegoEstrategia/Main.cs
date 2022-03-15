@@ -256,7 +256,7 @@ public class Main : MonoBehaviour
         Crea las clases guerrero y arquero.
         Crea dos aldeanos para cada equipo. Crea un edificio para cada equipo. Crea un guerrero y un arquero por equipo.
         El guerrero ataca 10 y el arquero 5.
-        Haz que uno de los dos aleatoriamente, ataque a una de las cuatro unidades aleatoriamente (asumimos que están en rango de ataque)
+        Haz que uno de los dos aleatoriamente, ataque a una de las 5 unidades aleatoriamente (asumimos que están en rango de ataque)
         Si una unidad ya murió debe notificarse, pero si le atacan se pasa el turno.
         En cada unidad de tiempo, atacará uno de los dos equipos aleatoriamente.
         Imprime por pantalla lo que pasa y quién gana.
@@ -289,20 +289,26 @@ public class Main : MonoBehaviour
         //int eleccion = Random.Range(0,2);
 
         //defino el elemento que se hara aleatorio
-        int eleccion;   
-
-        
+        int eleccion;     
 
         
         //Cuando se llama al metodo NO TodosMuertos sobre los 2 equipos
-             while( ! TodosMuertos(EquipoAzul) && ! TodosMuertos(EquipoRojo)){
-             //Numero aleatorio que sera 0 o 1
+        while( ! TodosMuertos(EquipoAzul) && ! TodosMuertos(EquipoRojo)){
+    
              
-             //Numero aleatorio que sera 0 o 1
-        eleccion = Random.Range(0,2);
+        //Numero aleatorio que sera 0 o 1
+        eleccion = Random.Range(0,2); //Dentro del bucle para que no ataque siempre el mismo
             
-            if(eleccion==1){
+            //Si el aleatorio resulta 0  
+            if(eleccion == 0){
                     EquipoAzul[Random.Range(0,5)].SerAtacado(((Militar)EquipoRojo[Random.Range(3, 5)]).Atacar());
+                    //Unidade defensa = azul[Random.Range(0,5)];
+                    //Militar ataque = ((Militar) rojos[Random.Range(0,5)];
+                    //defensa.serAtacado(ataque.atacar);
+
+                    //if (TodosMuertos(azules)) {
+                    //Debug.Log("Gano rojo");
+                    //}
                     if( ! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
                         Debug.Log("Ganó el equipo Rojo");
                         break;
@@ -313,8 +319,9 @@ public class Main : MonoBehaviour
                         Debug.Log("Ganó el equipo Azul");
                         break; 
                     }
-            }
+            }       
 
+            //Sino
             else{
                 
             EquipoRojo[Random.Range(0,5)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
@@ -331,18 +338,28 @@ public class Main : MonoBehaviour
         }     
     }
 
-    private bool TodosMuertos(List<Unidades> equipos){
+    //Metodo para comprobar si estan vivos
+    private bool TodosMuertos(List<Unidades> u){
         
+        foreach (Unidades utemporal in u)
+        {
+            if (utemporal.getViva())
+            {
+                return false;
+            }
+        }
+        return true;
+        
+    
+    /*
         for (int i=0; i < equipos.Count; i++){
             if(equipos[i].getViva()){   
-                Debug.Log("Han palmado");
                 return false;
-                
             }
         }
 
         return true;
-        
+       */ 
         
         //Si aldeano 1 ha muerto de cualquiera de los 2 equipos aparece correctamente la frase "Gano el ..." SI muere cualquier otro miembro de la lista no
       

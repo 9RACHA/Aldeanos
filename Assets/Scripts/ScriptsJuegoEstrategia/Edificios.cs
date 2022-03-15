@@ -8,6 +8,7 @@ public class Edificios : PlayableCharacter
 
      public Edificios(string e){ //constructor
         Nacer(); 
+        nombre = e;
         vidaTotal = 100;
         vidaActual = vidaTotal;
         Debug.Log("Creado edificio ");

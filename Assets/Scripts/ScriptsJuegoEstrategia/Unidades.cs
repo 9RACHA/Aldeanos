@@ -12,18 +12,24 @@ public abstract class Unidades : MonoBehaviour  //puede usarse como clase no com
     protected string nombre;
 
     public string SerAtacado(int poderAtaque){
-        vidaActual = vidaActual - poderAtaque;
+        if (viva)
+        {
+            vidaActual = vidaActual - poderAtaque;
          if (vidaActual <= 0) {
             Morir();
         }
         Debug.Log(nombre + " fue atacado con " + poderAtaque + " puntos");
-        return "Fui atacado con " + poderAtaque + " puntos";
+        return "Fui atacado con " + poderAtaque + " puntos";  
+        } else {
+            return "Ya estoy muerto";
+        }
     }
+        
 
-    public string Nacer(){
+    public void Nacer(){
         viva = true;
         Debug.Log(nombre + "He nacido");
-        return "He nacido";
+       // return "He nacido";
     }
 
     // Ejercicio diseñar cómo mueren las unidades
