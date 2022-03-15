@@ -309,6 +309,12 @@ public class Main : MonoBehaviour
                     //if (TodosMuertos(azules)) {
                     //Debug.Log("Gano rojo");
                     //}
+
+
+                    //if (TodosMuertos(azules)){
+                        //Debug log ("Gano el rojo");
+                    //}
+                    
                     if( ! EquipoAzul[3].getViva() && ! EquipoAzul[4].getViva()){
                         Debug.Log("Ganó el equipo Rojo");
                         break;
