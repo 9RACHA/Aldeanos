@@ -327,7 +327,7 @@ public class Main : MonoBehaviour
                     }
             }       
 
-            //Sino
+        /*    //Sino
             else{
                 
             EquipoRojo[Random.Range(0,5)].SerAtacado(((Militar)EquipoAzul[Random.Range(3, 5)]).Atacar());
@@ -340,7 +340,7 @@ public class Main : MonoBehaviour
                     Debug.Log("Ganó el equipo Rojo");
                     break;
                 }
-            }
+            }*/
         }     
     }
 
