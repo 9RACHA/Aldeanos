@@ -366,8 +366,6 @@ public class Main : MonoBehaviour
 
         return true;
        */ 
-        
-        //Si aldeano 1 ha muerto de cualquiera de los 2 equipos aparece correctamente la frase "Gano el ..." SI muere cualquier otro miembro de la lista no
       
     
     }
